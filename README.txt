@@ -1,4 +1,0 @@
-TetraMaster
-===========
-
-My Personal Project
