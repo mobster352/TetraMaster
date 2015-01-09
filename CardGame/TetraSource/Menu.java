@@ -4,82 +4,69 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 
-public class Menu extends JFrame implements MouseListener{
+public class Menu extends JPanel{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private final int windowWidth;
-	private final int windowHeight;
+	private int windowWidth;
+	private int windowHeight;
 	private JFrame frame;
 	private Container pane;
+	private ImageIcon img;
+	private JLabel board;
+	private JButton button;
+	private JButton button2;
 	
 	public Menu()
 	{
 		windowWidth = 800;
 		windowHeight = 650;
-		frame = new JFrame();
+		frame = new JFrame("Tetra Master");
 		pane = frame.getContentPane();
-	}
-	
-	public void run()
-	{
-		//pane.setLayout(null);
 		frame.setSize(windowWidth, windowHeight);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		JButton button = new JButton("New Game");
-		button.addMouseListener(this);
-		pane.add(button);
-		frame.pack();
+		button = new JButton("New Game");
+		button2 = new JButton("Quit");
+		pane.add(button,BorderLayout.NORTH);
+		pane.add(button2,BorderLayout.SOUTH);
+		//frame.pack();
 		frame.setVisible(true);
 	}
 	
+	public void run()
+	{	
+		button.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+			frame.dispose();
+			Game g = new Game();
+			try {
+				g.run();
+				//new Game().run();
+				frame.dispose();
+			} catch (InterruptedException ee) {
+				//System.err.println("An InterruptedException was caught: " + ee.getMessage());
+			}
+         }          
+		});
+	  
+		button2.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+			System.exit(0);
+		 }
+		});
+	}
 	public static void main(String[] args)
 	{
 		Menu m = new Menu();
 		m.run();
 	}
 
-	@Override
-	public void mouseClicked(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseExited(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mousePressed(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		//frame.setVisible(false);
-		frame.dispose();
-		Game g = new Game();
-		try {
-			g.run();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-}
+}	

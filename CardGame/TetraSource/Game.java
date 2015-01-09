@@ -5,7 +5,7 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
-public class Game extends JPanel implements MouseListener
+public class Game extends JFrame implements MouseListener
 {
 	private static final long serialVersionUID = 1L;
 	private final int WINDOW_WIDTH;
@@ -66,6 +66,8 @@ public class Game extends JPanel implements MouseListener
 	private JLabel tL5;
 	private JLabel listener;
 	private JLabel board = new JLabel();
+	private boolean pspot1,pspot2,pspot3,pspot4,pspot5,pspot6,pspot7,pspot8,pspot9,pspot10,pspot11,pspot12,pspot13,pspot14,pspot15,pspot16; //player card in spot
+	private boolean aspot1,aspot2,aspot3,aspot4,aspot5,aspot6,aspot7,aspot8,aspot9,aspot10,aspot11,aspot12,aspot13,aspot14,aspot15,aspot16; //ai card in spot
 	
 	
 	public Game()
@@ -112,13 +114,20 @@ public class Game extends JPanel implements MouseListener
 		img = null;
 		card = null;
 		frame.setResizable(false);
-		frame.pack();
-		frame.setVisible(true);
 		tL1 = new JLabel();
 		tL2 = new JLabel();
 		tL3 = new JLabel();
 		tL4 = new JLabel();
 		tL5 = new JLabel();
+		pspot1=false;pspot2=false;pspot3=false;pspot4=false;pspot5=false;pspot6=false;pspot7=false;pspot8=false;pspot9=false;pspot10=false;
+		pspot11=false;pspot12=false;pspot13=false;pspot14=false;pspot15=false;pspot16=false;
+		aspot1=false;aspot2=false;aspot3=false;aspot4=false;aspot5=false;aspot6=false;aspot7=false;aspot8=false;aspot9=false;aspot10=false;
+		aspot11=false;aspot12=false;aspot13=false;aspot14=false;aspot15=false;aspot16=false;
+		
+		frame.pack();
+		frame.setVisible(true);
+		frame.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 	}
 	
@@ -174,9 +183,6 @@ public class Game extends JPanel implements MouseListener
 	
 	public void menu(Container pane)
 	{
-		frame.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
 		img = new ImageIcon(getClass().getResource("/images/board.png"));
 		board = new JLabel(img);
 		pane.add(board);
@@ -208,8 +214,8 @@ public class Game extends JPanel implements MouseListener
 	public void checkHand(Container pane)
 
 	{
-		if(p.getHandSize()<5 && p.getHandSize()>0)
-		{
+		//if(p.getHandSize()<5 && p.getHandSize()>0)
+		//{
 			if(p.getDeck().getSize()>0)
 				p.draw();
 			
@@ -259,7 +265,7 @@ public class Game extends JPanel implements MouseListener
 					tL5.setBounds(card);
 				}
 			}
-		}
+		//}
 		
 	}//end checkHand
 
@@ -397,6 +403,7 @@ public class Game extends JPanel implements MouseListener
 				onBoard.add(p.getHand().get(selected-1));
 				p.use(selected-1);
 				checkHand(pane);
+				pspot1 = true;
 				taken1 = true;
 			}
 			if(selected==2)
@@ -421,6 +428,7 @@ public class Game extends JPanel implements MouseListener
 				onBoard.add(p.getHand().get(selected-1));
 				p.use(selected-1);
 				checkHand(pane);
+				pspot1 = true;
 				taken1 = true;
 			}
 			if(selected==3)
@@ -445,6 +453,7 @@ public class Game extends JPanel implements MouseListener
 				onBoard.add(p.getHand().get(selected-1));
 				p.use(selected-1);
 				checkHand(pane);
+				pspot1 = true;
 				taken1 = true;
 			}
 			if(selected==4)
@@ -469,6 +478,7 @@ public class Game extends JPanel implements MouseListener
 				onBoard.add(p.getHand().get(selected-1));
 				p.use(selected-1);
 				checkHand(pane);
+				pspot1 = true;
 				taken1 = true;
 			}
 			if(selected==5)
@@ -493,6 +503,7 @@ public class Game extends JPanel implements MouseListener
 				onBoard.add(p.getHand().get(selected-1));
 				p.use(selected-1);
 				checkHand(pane);
+				pspot1 = true;
 				taken1 = true;
 			}
 			onBoard.get(onBoard.size()-1).setLoc(1);
@@ -531,6 +542,7 @@ public class Game extends JPanel implements MouseListener
 				onBoard.add(p.getHand().get(selected-1));
 				p.use(selected-1);
 				checkHand(pane);
+				pspot2 = true;
 				taken2 = true;
 			}
 			if(selected==2)
@@ -555,6 +567,7 @@ public class Game extends JPanel implements MouseListener
 				onBoard.add(p.getHand().get(selected-1));
 				p.use(selected-1);
 				checkHand(pane);
+				pspot2 = true;
 				taken2 = true;
 			}
 			if(selected==3)
@@ -579,6 +592,7 @@ public class Game extends JPanel implements MouseListener
 				onBoard.add(p.getHand().get(selected-1));
 				p.use(selected-1);
 				checkHand(pane);
+				pspot2 = true;
 				taken2 = true;
 			}
 			if(selected==4)
@@ -603,6 +617,7 @@ public class Game extends JPanel implements MouseListener
 				onBoard.add(p.getHand().get(selected-1));
 				p.use(selected-1);
 				checkHand(pane);
+				pspot2 = true;
 				taken2 = true;
 			}
 			if(selected==5)
@@ -627,6 +642,7 @@ public class Game extends JPanel implements MouseListener
 				onBoard.add(p.getHand().get(selected-1));
 				p.use(selected-1);
 				checkHand(pane);
+				pspot2 = true;
 				taken2 = true;
 			}
 			onBoard.get(onBoard.size()-1).setLoc(2);
@@ -665,6 +681,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot3 = true;
 					taken3 = true;
 				}
 				if(selected==2)
@@ -689,6 +706,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot3 = true;
 					taken3 = true;
 				}
 				if(selected==3)
@@ -713,6 +731,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot3 = true;
 					taken3 = true;
 				}
 				if(selected==4)
@@ -737,6 +756,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot3 = true;
 					taken3 = true;
 				}
 				if(selected==5)
@@ -761,6 +781,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot3 = true;
 					taken3 = true;
 				}
 				onBoard.get(onBoard.size()-1).setLoc(3);
@@ -799,6 +820,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot4 = true;
 					taken4 = true;
 				}
 				if(selected==2)
@@ -823,6 +845,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot4 = true;
 					taken4 = true;
 				}
 				if(selected==3)
@@ -847,6 +870,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot4 = true;
 					taken4 = true;
 				}
 				if(selected==4)
@@ -871,6 +895,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot4 = true;
 					taken4 = true;
 				}
 				if(selected==5)
@@ -895,6 +920,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot4 = true;
 					taken4 = true;
 				}
 				onBoard.get(onBoard.size()-1).setLoc(4);
@@ -933,6 +959,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot5 = true;
 					taken5 = true;
 				}
 				if(selected==2)
@@ -957,6 +984,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot5 = true;
 					taken5 = true;
 				}
 				if(selected==3)
@@ -981,6 +1009,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot5 = true;
 					taken5 = true;
 				}
 				if(selected==4)
@@ -1005,6 +1034,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot5 = true;
 					taken5 = true;
 				}
 				if(selected==5)
@@ -1029,6 +1059,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot5 = true;
 					taken5 = true;
 				}
 				onBoard.get(onBoard.size()-1).setLoc(5);
@@ -1067,6 +1098,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot6 = true;
 					taken6 = true;
 				}
 				if(selected==2)
@@ -1091,6 +1123,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot6 = true;
 					taken6 = true;
 				}
 				if(selected==3)
@@ -1115,6 +1148,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot6 = true;
 					taken6 = true;
 				}
 				if(selected==4)
@@ -1139,6 +1173,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot6 = true;
 					taken6 = true;
 				}
 				if(selected==5)
@@ -1163,6 +1198,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot6 = true;
 					taken6 = true;
 				}
 				onBoard.get(onBoard.size()-1).setLoc(6);
@@ -1201,6 +1237,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot7 = true;
 					taken7 = true;
 				}
 				if(selected==2)
@@ -1225,6 +1262,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot7 = true;
 					taken7 = true;
 				}
 				if(selected==3)
@@ -1249,6 +1287,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot7 = true;
 					taken7 = true;
 				}
 				if(selected==4)
@@ -1273,6 +1312,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot7 = true;
 					taken7 = true;
 				}
 				if(selected==5)
@@ -1297,6 +1337,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot7 = true;
 					taken7 = true;
 				}
 				onBoard.get(onBoard.size()-1).setLoc(7);
@@ -1335,6 +1376,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot8 = true;
 					taken8 = true;
 				}
 				if(selected==2)
@@ -1359,6 +1401,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot8 = true;
 					taken8 = true;
 				}
 				if(selected==3)
@@ -1383,6 +1426,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot8 = true;
 					taken8 = true;
 				}
 				if(selected==4)
@@ -1407,6 +1451,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot8 = true;
 					taken8 = true;
 				}
 				if(selected==5)
@@ -1431,6 +1476,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot8 = true;
 					taken8 = true;
 				}
 				onBoard.get(onBoard.size()-1).setLoc(8);
@@ -1469,6 +1515,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot9 = true;
 					taken9 = true;
 				}
 				if(selected==2)
@@ -1493,6 +1540,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot9 = true;
 					taken9 = true;
 				}
 				if(selected==3)
@@ -1517,6 +1565,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot9 = true;
 					taken9 = true;
 				}
 				if(selected==4)
@@ -1541,6 +1590,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot9 = true;
 					taken9 = true;
 				}
 				if(selected==5)
@@ -1565,6 +1615,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot9 = true;
 					taken9 = true;
 				}
 				onBoard.get(onBoard.size()-1).setLoc(9);
@@ -1603,6 +1654,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot10 = true;
 					taken10 = true;
 				}
 				if(selected==2)
@@ -1627,6 +1679,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot10 = true;
 					taken10 = true;
 				}
 				if(selected==3)
@@ -1651,6 +1704,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot10 = true;
 					taken10 = true;
 				}
 				if(selected==4)
@@ -1675,6 +1729,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot10 = true;
 					taken10 = true;
 				}
 				if(selected==5)
@@ -1699,6 +1754,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot10 = true;
 					taken10 = true;
 				}
 				onBoard.get(onBoard.size()-1).setLoc(10);
@@ -1737,6 +1793,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot11 = true;
 					taken11 = true;
 				}
 				if(selected==2)
@@ -1761,6 +1818,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot11 = true;
 					taken11 = true;
 				}
 				if(selected==3)
@@ -1785,6 +1843,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot11 = true;
 					taken11 = true;
 				}
 				if(selected==4)
@@ -1809,6 +1868,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot11 = true;
 					taken11 = true;
 				}
 				if(selected==5)
@@ -1833,6 +1893,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot11 = true;
 					taken11 = true;
 				}
 				onBoard.get(onBoard.size()-1).setLoc(11);
@@ -1871,6 +1932,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot12 = true;
 					taken12 = true;
 				}
 				if(selected==2)
@@ -1895,6 +1957,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot12 = true;
 					taken12 = true;
 				}
 				if(selected==3)
@@ -1919,6 +1982,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot12 = true;
 					taken12 = true;
 				}
 				if(selected==4)
@@ -1943,6 +2007,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot12 = true;
 					taken12 = true;
 				}
 				if(selected==5)
@@ -1967,6 +2032,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot12 = true;
 					taken12 = true;
 				}
 				onBoard.get(onBoard.size()-1).setLoc(12);
@@ -2005,6 +2071,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot13 = true;
 					taken13 = true;
 				}
 				if(selected==2)
@@ -2029,6 +2096,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot13 = true;
 					taken13 = true;
 				}
 				if(selected==3)
@@ -2053,6 +2121,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot13 = true;
 					taken13 = true;
 				}
 				if(selected==4)
@@ -2077,6 +2146,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot13 = true;
 					taken13 = true;
 				}
 				if(selected==5)
@@ -2101,6 +2171,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot13 = true;
 					taken13 = true;
 				}
 				onBoard.get(onBoard.size()-1).setLoc(13);
@@ -2139,6 +2210,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot14 = true;
 					taken14 = true;
 				}
 				if(selected==2)
@@ -2163,6 +2235,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot14 = true;
 					taken14 = true;
 				}
 				if(selected==3)
@@ -2187,6 +2260,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot14 = true;
 					taken14 = true;
 				}
 				if(selected==4)
@@ -2211,6 +2285,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot14 = true;
 					taken14 = true;
 				}
 				if(selected==5)
@@ -2235,6 +2310,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot14 = true;
 					taken14 = true;
 				}
 				onBoard.get(onBoard.size()-1).setLoc(14);
@@ -2273,6 +2349,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot15 = true;
 					taken15 = true;
 				}
 				if(selected==2)
@@ -2297,6 +2374,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot15 = true;
 					taken15 = true;
 				}
 				if(selected==3)
@@ -2321,6 +2399,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot15 = true;
 					taken15 = true;
 				}
 				if(selected==4)
@@ -2345,6 +2424,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot15 = true;
 					taken15 = true;
 				}
 				if(selected==5)
@@ -2369,6 +2449,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot15 = true;
 					taken15 = true;
 				}
 				onBoard.get(onBoard.size()-1).setLoc(15);
@@ -2407,6 +2488,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot16 = true;
 					taken16 = true;
 				}
 				if(selected==2)
@@ -2431,6 +2513,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot16 = true;
 					taken16 = true;
 				}
 				if(selected==3)
@@ -2455,6 +2538,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot16 = true;
 					taken16 = true;
 				}
 				if(selected==4)
@@ -2479,6 +2563,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot16 = true;
 					taken16 = true;
 				}
 				if(selected==5)
@@ -2503,6 +2588,7 @@ public class Game extends JPanel implements MouseListener
 					onBoard.add(p.getHand().get(selected-1));
 					p.use(selected-1);
 					checkHand(pane);
+					pspot16 = true;
 					taken16 = true;
 				}
 				onBoard.get(onBoard.size()-1).setLoc(16);
@@ -7252,6 +7338,3952 @@ public class Game extends JPanel implements MouseListener
 		CardAI card = null;
 		int save = 0;
 		String temp = "/images/";
+		
+		//logic >
+		if(pspot1==true)
+		{
+			Card c = null;
+			card = null;
+			for(int i=0; i<onBoard.size(); i++)
+			{
+				if(onBoard.get(i).getLoc()==1)
+				{
+					c = onBoard.get(i);
+				}
+			}
+			if(taken2==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getLeft()>c.getRight())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(100,0,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 2;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot2 = true;
+					taken2 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken5==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getTop()>c.getDown())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(0,100,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 5;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot5 = true;
+					taken5 = true;
+					myTurn = true;
+					return;
+				}
+			}
+		}//end pspot1
+		if(pspot2==true)
+		{
+			Card c = null;
+			card = null;
+			for(int i=0; i<onBoard.size(); i++)
+			{
+				if(onBoard.get(i).getLoc()==2)
+				{
+					c = onBoard.get(i);
+				}
+			}
+			if(taken1==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getRight()>c.getLeft())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(0,0,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 1;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot1 = true;
+					taken1 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken3==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getLeft()>c.getRight())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(200,0,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 3;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot3 = true;
+					taken3 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken6==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getTop()>c.getDown())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(100,100,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 6;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot6 = true;
+					taken6 = true;
+					myTurn = true;
+					return;
+				}
+			}
+		}//end pspot2
+		if(pspot3==true)
+		{
+			Card c = null;
+			card = null;
+			for(int i=0; i<onBoard.size(); i++)
+			{
+				if(onBoard.get(i).getLoc()==3)
+				{
+					c = onBoard.get(i);
+				}
+			}
+			if(taken2==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getRight()>c.getLeft())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(100,0,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 2;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot2 = true;
+					taken2 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken4==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getLeft()>c.getRight())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(300,0,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 4;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot4 = true;
+					taken4 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken7==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getTop()>c.getDown())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(200,100,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 7;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot7 = true;
+					taken7 = true;
+					myTurn = true;
+					return;
+				}
+			}
+		}//end pspot3
+		if(pspot4==true)
+		{
+			Card c = null;
+			card = null;
+			for(int i=0; i<onBoard.size(); i++)
+			{
+				if(onBoard.get(i).getLoc()==4)
+				{
+					c = onBoard.get(i);
+				}
+			}
+			if(taken3==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getRight()>c.getLeft())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(200,0,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 3;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot3 = true;
+					taken3 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken8==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getTop()>c.getDown())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(300,100,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 8;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot8 = true;
+					taken8 = true;
+					myTurn = true;
+					return;
+				}
+			}	
+		}//end pspot4
+		if(pspot5==true)
+		{
+			Card c = null;
+			card = null;
+			for(int i=0; i<onBoard.size(); i++)
+			{
+				if(onBoard.get(i).getLoc()==5)
+				{
+					c = onBoard.get(i);
+				}
+			}
+			if(taken1==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getDown()>c.getTop())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(0,0,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 1;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot1 = true;
+					taken1 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken6==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getLeft()>c.getRight())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(100,100,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 6;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot6 = true;
+					taken6 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken9==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getTop()>c.getDown())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(0,200,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 9;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot9 = true;
+					taken9 = true;
+					myTurn = true;
+					return;
+				}
+			}
+		}//end pspot5
+		if(pspot6==true)
+		{
+			Card c = null;
+			card = null;
+			for(int i=0; i<onBoard.size(); i++)
+			{
+				if(onBoard.get(i).getLoc()==6)
+				{
+					c = onBoard.get(i);
+				}
+			}
+			if(taken2==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getDown()>c.getTop())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(100,0,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 2;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot2 = true;
+					taken2 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken7==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getLeft()>c.getRight())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(200,100,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 7;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot7 = true;
+					taken7 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken10==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getTop()>c.getDown())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(100,200,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 10;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot10 = true;
+					taken10 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken5==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getRight()>c.getLeft())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(0,100,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 5;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot5 = true;
+					taken5 = true;
+					myTurn = true;
+					return;
+				}
+			}
+		}//end pspot6
+		if(pspot7==true)
+		{
+			Card c = null;
+			card = null;
+			for(int i=0; i<onBoard.size(); i++)
+			{
+				if(onBoard.get(i).getLoc()==7)
+				{
+					c = onBoard.get(i);
+				}
+			}
+			if(taken3==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getDown()>c.getTop())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(200,0,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 3;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot3 = true;
+					taken3 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken8==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getLeft()>c.getRight())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(300,100,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 8;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot8 = true;
+					taken8 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken11==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getTop()>c.getDown())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(200,200,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 11;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot11 = true;
+					taken11 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken6==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getRight()>c.getLeft())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(100,100,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 6;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot6 = true;
+					taken6 = true;
+					myTurn = true;
+					return;
+				}
+			}
+		}//end pspot7
+		if(pspot8==true)
+		{
+			Card c = null;
+			card = null;
+			for(int i=0; i<onBoard.size(); i++)
+			{
+				if(onBoard.get(i).getLoc()==8)
+				{
+					c = onBoard.get(i);
+				}
+			}
+			if(taken4==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getDown()>c.getTop())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(300,0,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 4;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot4 = true;
+					taken4 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken12==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getTop()>c.getDown())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(300,200,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 12;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot12 = true;
+					taken12 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken7==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getRight()>c.getLeft())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(200,100,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 7;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot7 = true;
+					taken7 = true;
+					myTurn = true;
+					return;
+				}
+			}
+		}//end pspot8
+		if(pspot9==true)
+		{
+			Card c = null;
+			card = null;
+			for(int i=0; i<onBoard.size(); i++)
+			{
+				if(onBoard.get(i).getLoc()==9)
+				{
+					c = onBoard.get(i);
+				}
+			}
+			if(taken5==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getDown()>c.getTop())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(0,100,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 5;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot5 = true;
+					taken5 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken10==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getLeft()>c.getRight())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(100,200,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 10;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot10 = true;
+					taken10 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken13==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getTop()>c.getDown())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(0,300,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 13;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot13 = true;
+					taken13 = true;
+					myTurn = true;
+					return;
+				}
+			}
+		}//end pspot9
+		if(pspot10==true)
+		{
+			Card c = null;
+			card = null;
+			for(int i=0; i<onBoard.size(); i++)
+			{
+				if(onBoard.get(i).getLoc()==10)
+				{
+					c = onBoard.get(i);
+				}
+			}
+			if(taken6==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getDown()>c.getTop())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(100,100,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 6;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot6 = true;
+					taken6 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken11==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getLeft()>c.getRight())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(200,200,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 11;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot11 = true;
+					taken11 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken14==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getTop()>c.getDown())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(100,300,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 14;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot14 = true;
+					taken14 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken9==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getRight()>c.getLeft())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(0,200,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 9;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot9 = true;
+					taken9 = true;
+					myTurn = true;
+					return;
+				}
+			}
+		}//end pspot10
+		if(pspot11==true)
+		{
+			Card c = null;
+			card = null;
+			for(int i=0; i<onBoard.size(); i++)
+			{
+				if(onBoard.get(i).getLoc()==11)
+				{
+					c = onBoard.get(i);
+				}
+			}
+			if(taken7==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getDown()>c.getTop())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(200,100,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 7;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot7 = true;
+					taken7 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken12==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getLeft()>c.getRight())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(300,200,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 12;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot12 = true;
+					taken12 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken15==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getTop()>c.getDown())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(200,300,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 15;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot15 = true;
+					taken15 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken10==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getRight()>c.getLeft())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(100,200,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 10;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot10 = true;
+					taken10 = true;
+					myTurn = true;
+					return;
+				}
+			}
+		}//end pspot11
+		if(pspot12==true)
+		{
+			Card c = null;
+			card = null;
+			for(int i=0; i<onBoard.size(); i++)
+			{
+				if(onBoard.get(i).getLoc()==12)
+				{
+					c = onBoard.get(i);
+				}
+			}
+			if(taken8==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getDown()>c.getTop())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(300,100,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 8;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot8 = true;
+					taken8 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken16==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getTop()>c.getDown())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(300,300,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 16;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot16 = true;
+					taken16 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken11==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getRight()>c.getLeft())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(200,200,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 11;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot11 = true;
+					taken11 = true;
+					myTurn = true;
+					return;
+				}
+			}
+		}//end pspot12
+		if(pspot13==true)
+		{
+			Card c = null;
+			card = null;
+			for(int i=0; i<onBoard.size(); i++)
+			{
+				if(onBoard.get(i).getLoc()==13)
+				{
+					c = onBoard.get(i);
+				}
+			}
+			if(taken9==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getDown()>c.getTop())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(0,200,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 9;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot9 = true;
+					taken9 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken14==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getLeft()>c.getRight())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(100,300,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 14;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot14 = true;
+					taken14 = true;
+					myTurn = true;
+					return;
+				}
+			}
+		}//end pspot13
+		if(pspot14==true)
+		{
+			Card c = null;
+			card = null;
+			for(int i=0; i<onBoard.size(); i++)
+			{
+				if(onBoard.get(i).getLoc()==14)
+				{
+					c = onBoard.get(i);
+				}
+			}
+			if(taken10==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getDown()>c.getTop())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(100,200,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 10;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot10 = true;
+					taken10 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken15==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getLeft()>c.getRight())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(200,300,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 15;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot15 = true;
+					taken15 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken13==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getRight()>c.getLeft())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(0,300,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 13;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot13 = true;
+					taken13 = true;
+					myTurn = true;
+					return;
+				}
+			}
+		}//end pspot14
+		if(pspot15==true)
+		{
+			Card c = null;
+			card = null;
+			for(int i=0; i<onBoard.size(); i++)
+			{
+				if(onBoard.get(i).getLoc()==15)
+				{
+					c = onBoard.get(i);
+				}
+			}
+			if(taken11==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getDown()>c.getTop())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(200,200,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 11;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot11 = true;
+					taken11 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken16==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getLeft()>c.getRight())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(300,300,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 16;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot16 = true;
+					taken16 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken14==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getRight()>c.getLeft())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(100,300,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 14;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot14 = true;
+					taken14 = true;
+					myTurn = true;
+					return;
+				}
+			}
+		}//end pspot15
+		if(pspot16==true)
+		{
+			Card c = null;
+			card = null;
+			for(int i=0; i<onBoard.size(); i++)
+			{
+				if(onBoard.get(i).getLoc()==16)
+				{
+					c = onBoard.get(i);
+				}
+			}
+			if(taken12==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getDown()>c.getTop())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(300,200,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 12;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot12 = true;
+					taken12 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken15==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getRight()>c.getLeft())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(200,300,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 15;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot15 = true;
+					taken15 = true;
+					myTurn = true;
+					return;
+				}
+			}
+		}//end pspot16
+		
+	
+		
+		//logic =
+		if(pspot1==true)
+		{
+			Card c = null;
+			card = null;
+			for(int i=0; i<onBoard.size(); i++)
+			{
+				if(onBoard.get(i).getLoc()==1)
+				{
+					c = onBoard.get(i);
+				}
+			}
+			if(taken2==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getLeft()==c.getRight())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(100,0,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 2;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot2 = true;
+					taken2 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken5==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getTop()==c.getDown())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(0,100,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 5;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot5 = true;
+					taken5 = true;
+					myTurn = true;
+					return;
+				}
+			}
+		}//end pspot1
+		if(pspot2==true)
+		{
+			Card c = null;
+			card = null;
+			for(int i=0; i<onBoard.size(); i++)
+			{
+				if(onBoard.get(i).getLoc()==2)
+				{
+					c = onBoard.get(i);
+				}
+			}
+			if(taken1==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getRight()==c.getLeft())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(0,0,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 1;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot1 = true;
+					taken1 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken3==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getLeft()==c.getRight())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(200,0,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 3;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot3 = true;
+					taken3 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken6==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getTop()==c.getDown())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(100,100,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 6;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot6 = true;
+					taken6 = true;
+					myTurn = true;
+					return;
+				}
+			}
+		}//end pspot2
+		if(pspot3==true)
+		{
+			Card c = null;
+			card = null;
+			for(int i=0; i<onBoard.size(); i++)
+			{
+				if(onBoard.get(i).getLoc()==3)
+				{
+					c = onBoard.get(i);
+				}
+			}
+			if(taken2==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getRight()==c.getLeft())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(100,0,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 2;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot2 = true;
+					taken2 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken4==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getLeft()==c.getRight())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(300,0,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 4;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot4 = true;
+					taken4 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken7==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getTop()==c.getDown())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(200,100,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 7;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot7 = true;
+					taken7 = true;
+					myTurn = true;
+					return;
+				}
+			}
+		}//end pspot3
+		if(pspot4==true)
+		{
+			Card c = null;
+			card = null;
+			for(int i=0; i<onBoard.size(); i++)
+			{
+				if(onBoard.get(i).getLoc()==4)
+				{
+					c = onBoard.get(i);
+				}
+			}
+			if(taken3==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getRight()==c.getLeft())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(200,0,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 3;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot3 = true;
+					taken3 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken8==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getTop()==c.getDown())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(300,100,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 8;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot8 = true;
+					taken8 = true;
+					myTurn = true;
+					return;
+				}
+			}	
+		}//end pspot4
+		if(pspot5==true)
+		{
+			Card c = null;
+			card = null;
+			for(int i=0; i<onBoard.size(); i++)
+			{
+				if(onBoard.get(i).getLoc()==5)
+				{
+					c = onBoard.get(i);
+				}
+			}
+			if(taken1==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getDown()==c.getTop())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(0,0,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 1;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot1 = true;
+					taken1 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken6==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getLeft()==c.getRight())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(100,100,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 6;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot6 = true;
+					taken6 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken9==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getTop()==c.getDown())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(0,200,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 9;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot9 = true;
+					taken9 = true;
+					myTurn = true;
+					return;
+				}
+			}
+		}//end pspot5
+		if(pspot6==true)
+		{
+			Card c = null;
+			card = null;
+			for(int i=0; i<onBoard.size(); i++)
+			{
+				if(onBoard.get(i).getLoc()==6)
+				{
+					c = onBoard.get(i);
+				}
+			}
+			if(taken2==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getDown()==c.getTop())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(100,0,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 2;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot2 = true;
+					taken2 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken7==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getLeft()==c.getRight())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(200,100,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 7;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot7 = true;
+					taken7 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken10==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getTop()==c.getDown())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(100,200,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 10;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot10 = true;
+					taken10 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken5==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getRight()==c.getLeft())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(0,100,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 5;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot5 = true;
+					taken5 = true;
+					myTurn = true;
+					return;
+				}
+			}
+		}//end pspot6
+		if(pspot7==true)
+		{
+			Card c = null;
+			card = null;
+			for(int i=0; i<onBoard.size(); i++)
+			{
+				if(onBoard.get(i).getLoc()==7)
+				{
+					c = onBoard.get(i);
+				}
+			}
+			if(taken3==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getDown()==c.getTop())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(200,0,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 3;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot3 = true;
+					taken3 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken8==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getLeft()==c.getRight())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(300,100,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 8;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot8 = true;
+					taken8 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken11==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getTop()==c.getDown())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(200,200,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 11;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot11 = true;
+					taken11 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken6==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getRight()==c.getLeft())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(100,100,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 6;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot6 = true;
+					taken6 = true;
+					myTurn = true;
+					return;
+				}
+			}
+		}//end pspot7
+		if(pspot8==true)
+		{
+			Card c = null;
+			card = null;
+			for(int i=0; i<onBoard.size(); i++)
+			{
+				if(onBoard.get(i).getLoc()==8)
+				{
+					c = onBoard.get(i);
+				}
+			}
+			if(taken4==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getDown()==c.getTop())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(300,0,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 4;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot4 = true;
+					taken4 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken12==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getTop()==c.getDown())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(300,200,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 12;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot12 = true;
+					taken12 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken7==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getRight()==c.getLeft())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(200,100,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 7;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot7 = true;
+					taken7 = true;
+					myTurn = true;
+					return;
+				}
+			}
+		}//end pspot8
+		if(pspot9==true)
+		{
+			Card c = null;
+			card = null;
+			for(int i=0; i<onBoard.size(); i++)
+			{
+				if(onBoard.get(i).getLoc()==9)
+				{
+					c = onBoard.get(i);
+				}
+			}
+			if(taken5==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getDown()==c.getTop())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(0,100,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 5;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot5 = true;
+					taken5 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken10==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getLeft()==c.getRight())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(100,200,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 10;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot10 = true;
+					taken10 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken13==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getTop()==c.getDown())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(0,300,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 13;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot13 = true;
+					taken13 = true;
+					myTurn = true;
+					return;
+				}
+			}
+		}//end pspot9
+		if(pspot10==true)
+		{
+			Card c = null;
+			card = null;
+			for(int i=0; i<onBoard.size(); i++)
+			{
+				if(onBoard.get(i).getLoc()==10)
+				{
+					c = onBoard.get(i);
+				}
+			}
+			if(taken6==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getDown()==c.getTop())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(100,100,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 6;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot6 = true;
+					taken6 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken11==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getLeft()==c.getRight())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(200,200,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 11;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot11 = true;
+					taken11 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken14==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getTop()==c.getDown())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(100,300,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 14;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot14 = true;
+					taken14 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken9==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getRight()==c.getLeft())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(0,200,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 9;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot9 = true;
+					taken9 = true;
+					myTurn = true;
+					return;
+				}
+			}
+		}//end pspot10
+		if(pspot11==true)
+		{
+			Card c = null;
+			card = null;
+			for(int i=0; i<onBoard.size(); i++)
+			{
+				if(onBoard.get(i).getLoc()==11)
+				{
+					c = onBoard.get(i);
+				}
+			}
+			if(taken7==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getDown()==c.getTop())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(200,100,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 7;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot7 = true;
+					taken7 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken12==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getLeft()==c.getRight())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(300,200,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 12;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot12 = true;
+					taken12 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken15==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getTop()==c.getDown())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(200,300,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 15;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot15 = true;
+					taken15 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken10==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getRight()==c.getLeft())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(100,200,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 10;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot10 = true;
+					taken10 = true;
+					myTurn = true;
+					return;
+				}
+			}
+		}//end pspot11
+		if(pspot12==true)
+		{
+			Card c = null;
+			card = null;
+			for(int i=0; i<onBoard.size(); i++)
+			{
+				if(onBoard.get(i).getLoc()==12)
+				{
+					c = onBoard.get(i);
+				}
+			}
+			if(taken8==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getDown()==c.getTop())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(300,100,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 8;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot8 = true;
+					taken8 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken16==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getTop()==c.getDown())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(300,300,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 16;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot16 = true;
+					taken16 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken11==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getRight()==c.getLeft())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(200,200,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 11;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot11 = true;
+					taken11 = true;
+					myTurn = true;
+					return;
+				}
+			}
+		}//end pspot12
+		if(pspot13==true)
+		{
+			Card c = null;
+			card = null;
+			for(int i=0; i<onBoard.size(); i++)
+			{
+				if(onBoard.get(i).getLoc()==13)
+				{
+					c = onBoard.get(i);
+				}
+			}
+			if(taken9==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getDown()==c.getTop())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(0,200,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 9;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot9 = true;
+					taken9 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken14==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getLeft()==c.getRight())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(100,300,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 14;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot14 = true;
+					taken14 = true;
+					myTurn = true;
+					return;
+				}
+			}
+		}//end pspot13
+		if(pspot14==true)
+		{
+			Card c = null;
+			card = null;
+			for(int i=0; i<onBoard.size(); i++)
+			{
+				if(onBoard.get(i).getLoc()==14)
+				{
+					c = onBoard.get(i);
+				}
+			}
+			if(taken10==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getDown()==c.getTop())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(100,200,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 10;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot10 = true;
+					taken10 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken15==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getLeft()==c.getRight())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(200,300,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 15;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot15 = true;
+					taken15 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken13==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getRight()==c.getLeft())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(0,300,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 13;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot13 = true;
+					taken13 = true;
+					myTurn = true;
+					return;
+				}
+			}
+		}//end pspot14
+		if(pspot15==true)
+		{
+			Card c = null;
+			card = null;
+			for(int i=0; i<onBoard.size(); i++)
+			{
+				if(onBoard.get(i).getLoc()==15)
+				{
+					c = onBoard.get(i);
+				}
+			}
+			if(taken11==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getDown()==c.getTop())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(200,200,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 11;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot11 = true;
+					taken11 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken16==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getLeft()==c.getRight())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(300,300,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 16;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot16 = true;
+					taken16 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken14==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getRight()==c.getLeft())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(100,300,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 14;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot14 = true;
+					taken14 = true;
+					myTurn = true;
+					return;
+				}
+			}
+		}//end pspot15
+		if(pspot16==true)
+		{
+			Card c = null;
+			card = null;
+			for(int i=0; i<onBoard.size(); i++)
+			{
+				if(onBoard.get(i).getLoc()==16)
+				{
+					c = onBoard.get(i);
+				}
+			}
+			if(taken12==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getDown()==c.getTop())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(300,200,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 12;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot12 = true;
+					taken12 = true;
+					myTurn = true;
+					return;
+				}
+			}
+			else if(taken15==false)
+			{
+				for(int i=0; i<a.getHandSize(); i++)
+				{
+					if(a.getHand().get(i).getRight()==c.getLeft())
+					{
+						card = a.getHand().get(i);
+						save = i;
+					}
+				}
+				if(card==null)
+				{
+					
+				}
+				else
+				{
+					temp += card.getName();
+					temp+=".png";
+					ImageIcon q = new ImageIcon(getClass().getResource(temp));
+					label = new JLabel(q);
+					board.add(label);
+					rec = new Rectangle(200,300,100,100);
+					label.setBounds(rec);
+					
+					aiBoard.add(card);
+					spot = 15;//first location on board
+					aiBoard.get(aiBoard.size()-1).setLoc(spot);
+					checkActionAI(spot,pane);//does the battling
+					
+					a.use(save);
+					checkAiHand(pane);
+					aspot15 = true;
+					taken15 = true;
+					myTurn = true;
+					return;
+				}
+			}
+		}//end pspot16
+		
+		
+		
+		//logic for FCFS
 		if(taken1==false)
 		{
 			for(int m=0; m<a.getHandSize(); m++)
@@ -7271,13 +11303,14 @@ public class Game extends JPanel implements MouseListener
 			label.setBounds(rec);
 			
 			aiBoard.add(card);
-			aiBoard.get(aiBoard.size()-1).setLoc(1);
 			spot = 1;//first location on board
+			aiBoard.get(aiBoard.size()-1).setLoc(spot);
 			checkActionAI(spot,pane);//does the battling
 			
 			
 			a.use(save);
 			checkAiHand(pane);
+			aspot1 = true;
 			taken1 = true;
 			myTurn = true;
 				
@@ -7310,6 +11343,7 @@ public class Game extends JPanel implements MouseListener
 			
 			a.use(save);
 			checkAiHand(pane);
+			aspot2 = true;
 			taken2 = true;
 			myTurn = true;
 			
@@ -7341,6 +11375,7 @@ public class Game extends JPanel implements MouseListener
 					
 					a.use(save);
 					checkAiHand(pane);
+					aspot3 = true;
 					taken3 = true;
 					myTurn = true;
 		}//end if taken3	
@@ -7370,6 +11405,7 @@ public class Game extends JPanel implements MouseListener
 			
 			a.use(save);
 			checkAiHand(pane);
+			aspot4 = true;
 			taken4 = true;
 			myTurn = true;
 		}//end if taken4	
@@ -7400,6 +11436,7 @@ public class Game extends JPanel implements MouseListener
 			
 			a.use(save);
 			checkAiHand(pane);
+			aspot5 = true;
 			taken5 = true;
 			myTurn = true;
 		}//end if taken5	
@@ -7430,6 +11467,7 @@ public class Game extends JPanel implements MouseListener
 					
 					a.use(save);
 					checkAiHand(pane);
+					aspot6 = true;
 					taken6 = true;
 					myTurn = true;
 		}//end if taken6	
@@ -7460,6 +11498,7 @@ public class Game extends JPanel implements MouseListener
 			
 			a.use(save);
 			checkAiHand(pane);
+			aspot7 = true;
 			taken7 = true;
 			myTurn = true;
 		}//end if taken7	
@@ -7490,6 +11529,7 @@ public class Game extends JPanel implements MouseListener
 		
 			a.use(save);
 			checkAiHand(pane);
+			aspot8 = true;
 			taken8 = true;
 			myTurn = true;
 		}//end if taken8	
@@ -7520,6 +11560,7 @@ public class Game extends JPanel implements MouseListener
 		
 			a.use(save);
 			checkAiHand(pane);
+			aspot9 = true;
 			taken9 = true;
 			myTurn = true;
 		}//end if taken9	
@@ -7550,6 +11591,7 @@ public class Game extends JPanel implements MouseListener
 
 			a.use(save);
 			checkAiHand(pane);
+			aspot10 = true;
 			taken10 = true;
 			myTurn = true;
 		}//end if taken10	
@@ -7580,6 +11622,7 @@ public class Game extends JPanel implements MouseListener
 			
 			a.use(save);
 			checkAiHand(pane);
+			aspot11 = true;
 			taken11 = true;
 			myTurn = true;
 		}//end if taken11	
@@ -7610,6 +11653,7 @@ public class Game extends JPanel implements MouseListener
 		
 			a.use(save);
 			checkAiHand(pane);
+			aspot12 = true;
 			taken12 = true;
 			myTurn = true;
 		}//end if taken12	
@@ -7639,6 +11683,7 @@ public class Game extends JPanel implements MouseListener
 			
 			a.use(save);
 			checkAiHand(pane);
+			aspot13 = true;
 			taken13 = true;
 			myTurn = true;
 		}//end if taken13	
@@ -7669,6 +11714,7 @@ public class Game extends JPanel implements MouseListener
 			
 			a.use(save);
 			checkAiHand(pane);
+			aspot14 = true;
 			taken14 = true;
 			myTurn = true;
 		}//end if taken14	
@@ -7699,6 +11745,7 @@ public class Game extends JPanel implements MouseListener
 		
 			a.use(save);
 			checkAiHand(pane);
+			aspot15 = true;
 			taken15 = true;
 			myTurn = true;
 		}//end if taken15	
@@ -7728,6 +11775,7 @@ public class Game extends JPanel implements MouseListener
 		
 			a.use(save);
 			checkAiHand(pane);
+			aspot16 = true;
 			taken16 = true;
 			myTurn = true;
 		}//end if taken16	
@@ -7979,7 +12027,6 @@ public class Game extends JPanel implements MouseListener
 			JOptionPane.showMessageDialog(getParent(), "You Lose");
 		if(pscore==ascore)
 			JOptionPane.showMessageDialog(getParent(), "Draw");
-		frame.dispose();
 		System.exit(0);
 	}
 
