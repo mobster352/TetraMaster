@@ -9,7 +9,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 
-public class Menu extends JPanel{
+public class Menu extends JFrame{
 
 	/**
 	 * 
@@ -45,7 +45,6 @@ public class Menu extends JPanel{
 	{	
 		button.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
-			frame.dispose();
 			Game g = new Game();
 			try {
 				g.run();

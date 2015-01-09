@@ -5,7 +5,7 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
-public class Game extends JFrame implements MouseListener
+public class Game extends JFrame implements MouseListener//,ActionListener
 {
 	private static final long serialVersionUID = 1L;
 	private final int WINDOW_WIDTH;
@@ -65,13 +65,18 @@ public class Game extends JFrame implements MouseListener
 	private JLabel tL4;
 	private JLabel tL5;
 	private JLabel listener;
-	private JLabel board = new JLabel();
+	private JPanel panel;
+	private JPanel panel1;
+	private JButton ngbutton;
+	private JButton qbutton;
+	private JLabel board;
 	private boolean pspot1,pspot2,pspot3,pspot4,pspot5,pspot6,pspot7,pspot8,pspot9,pspot10,pspot11,pspot12,pspot13,pspot14,pspot15,pspot16; //player card in spot
 	private boolean aspot1,aspot2,aspot3,aspot4,aspot5,aspot6,aspot7,aspot8,aspot9,aspot10,aspot11,aspot12,aspot13,aspot14,aspot15,aspot16; //ai card in spot
 	
 	
 	public Game()
 	{	
+		board = new JLabel();
 		boardWidth = 400;
 		boardHeight = 410;
 		WINDOW_WIDTH = 800;
@@ -135,9 +140,56 @@ public class Game extends JFrame implements MouseListener
 	{
 		Game g = new Game();	
 		g.run();
+		//g.useMain();
 	}
-	public void run() throws InterruptedException
+	
+	/*public void actionPerformed(ActionEvent ae)
+    {
+        JButton buttons = (JButton) ae.getSource();
+       
+            if (buttons == ngbutton)
+            {   
+                /*
+                 * this will remove the first panel 
+                 * and add the new panel to the frame.
+                 *
+                frame.remove(panel);
+                frame.setContentPane(panel1);
+				try {
+					run();
+					//new Game().run();
+					//frame.dispose();
+					} catch (InterruptedException ee) {
+						System.err.println("An InterruptedException was caught: " + ee.getMessage());
+					}
+            }
+            else if (buttons  == qbutton)
+            {
+               System.exit(0);
+            }
+            frame.validate();
+            frame.repaint(); // prefer to write this always.
+        
+    }   */
+	
+	/*public void useMain()
 	{
+		panel = new JPanel();
+		panel1 = new JPanel();
+		
+		ngbutton = new JButton("New Game");
+        qbutton = new JButton("Quit");
+		
+		ngbutton.addActionListener(this);
+		qbutton.addActionListener(this);
+		
+		panel.add(ngbutton);
+		panel.add(qbutton);
+		
+		frame.setContentPane(panel);
+	}*/
+	public void run() throws InterruptedException
+	{	
 		Container pane = frame.getContentPane();
 		pane.setLayout(null);
 		menu(pane);
@@ -185,8 +237,8 @@ public class Game extends JFrame implements MouseListener
 	{
 		img = new ImageIcon(getClass().getResource("/images/board.png"));
 		board = new JLabel(img);
-		pane.add(board);
 		board.setBounds(200, 100, boardWidth, boardHeight);
+		pane.add(board);
 		
 		score = new JLabel();
 		score.setIcon(new ImageIcon(getClass().getResource("/images/score.png")));
