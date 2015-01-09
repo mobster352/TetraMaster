@@ -18,5 +18,9 @@ The 8 on your card is greater than the 6 on your opponent's card, therefore your
 card flips and you gain 1 point.                                                              
 The player with the most points at the end wins.                                             
 
-
-
+Release Notes
+V1
+	Base Game with minimal AI
+	
+V2
+	Enhanced AI
